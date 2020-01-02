@@ -2,7 +2,8 @@ program Champions;
 
 uses
   Forms,
-  ChampionUnit in 'ChampionUnit.pas' {ChampionForm};
+  ChampionUnit in 'ChampionUnit.pas' {ChampionForm},
+  ChampionsLogic in 'ChampionsLogic.pas';
 
 {$R *.res}
 

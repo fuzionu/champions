@@ -6,7 +6,7 @@ object ChampionForm: TChampionForm
   Caption = 'Find Champion'
   ClientHeight = 391
   ClientWidth = 332
-  Color = clHighlightText
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
