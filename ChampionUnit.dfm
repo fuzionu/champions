@@ -31,8 +31,8 @@ object ChampionForm: TChampionForm
   object ChampionStats: TLabel
     Left = 187
     Top = 136
-    Width = 133
-    Height = 169
+    Width = 3
+    Height = 13
   end
   object InputField: TEdit
     Left = 32
@@ -50,6 +50,7 @@ object ChampionForm: TChampionForm
     Height = 17
     Caption = 'Search'
     TabOrder = 1
+    OnClick = SearchButtonClick
   end
   object ClearButton: TButton
     Left = 168
