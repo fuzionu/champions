@@ -71,6 +71,7 @@ object ChampionForm: TChampionForm
     Height = 17
     Caption = 'Clear'
     TabOrder = 2
+    OnClick = ClearButtonClick
   end
   object ExitButton: TButton
     Left = 120

@@ -20,10 +20,12 @@ type
     procedure ExitButtonClick(Sender: TObject);
     procedure InputFieldClick(Sender: TObject);
     procedure SearchButtonClick(Sender: TObject);
+    procedure ClearButtonClick(Sender: TObject);
   private
     function ShowChampion(Champion : TChampion) : String;
     
     procedure SetChampionImage(ChampionName : String);
+    procedure ClearEverything();
   public
 
   end;
@@ -34,6 +36,14 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TChampionForm.ClearEverything();
+begin
+  InputField.Clear;
+  ChampionImage.Picture := nil;
+  ChampionStats.Caption := '';
+  ChampNotFound.Caption := '';
+end;
 
 procedure TChampionForm.SetChampionImage(ChampionName : String);
 begin
@@ -89,6 +99,11 @@ begin
     end
     else
       ChampNotFound.Caption := 'Champion not found.';
+end;
+
+procedure TChampionForm.ClearButtonClick(Sender: TObject);
+begin
+  ClearEverything();
 end;
 
 end.
