@@ -56,7 +56,7 @@ end;
 procedure TChampionForm.SetChampionImage(ChampionName : String);
 begin
   try
-    ChampionImage.Picture.LoadFromFile('images\' + ChampionName + '.bmp');
+    ChampionImage.Picture.LoadFromFile('images\' + Trim(ChampionName) + '.bmp');
   except
     on EFOpenError do
       ShowMessage('Champion''s image not found.');

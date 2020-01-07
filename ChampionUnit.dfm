@@ -37,7 +37,7 @@ object ChampionForm: TChampionForm
   object ChampNotFound: TLabel
     Left = 104
     Top = 312
-    Width = 113
+    Width = 4
     Height = 16
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed

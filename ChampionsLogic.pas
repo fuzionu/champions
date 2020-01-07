@@ -50,7 +50,7 @@ begin
   Arr := GetAllChampions();
   for x := Low(Arr) to High(Arr) do
   begin
-    if CompareText(ChampionName, Arr[x].Name) = 0 then
+    if CompareText(Trim(ChampionName), Arr[x].Name) = 0 then
     begin
       Result := True;
       Exit;
@@ -92,7 +92,7 @@ begin
   Arr := GetAllChampions();
   for x := Low(Arr) to High(Arr) do
   begin
-    if CompareText(ChampionName, Arr[x].Name) = 0 then Champion := Arr[x];
+    if CompareText(Trim(ChampionName), Arr[x].Name) = 0 then Champion := Arr[x];
   end;
 
   Result := Champion;
