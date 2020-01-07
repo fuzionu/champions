@@ -15,13 +15,14 @@ type
     ClearButton: TButton;
     ExitButton: TButton;
     ChampionStats: TLabel;
+    ChampNotFound: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure ExitButtonClick(Sender: TObject);
     procedure InputFieldClick(Sender: TObject);
     procedure SearchButtonClick(Sender: TObject);
   private
     function ShowChampion(Champion : TChampion) : String;
-
+    
     procedure SetChampionImage(ChampionName : String);
   public
 
@@ -40,7 +41,7 @@ begin
     ChampionImage.Picture.LoadFromFile('images\' + ChampionName + '.bmp');
   except
     on EFOpenError do
-      ShowMessage('Champion''s image not found!');
+      ShowMessage('Champion''s image not found.');
   end;
 end;
 
@@ -80,10 +81,15 @@ end;
 
 procedure TChampionForm.SearchButtonClick(Sender: TObject);
 begin
-  ShowChampion(GetChampion(InputField.Text));
-  SetChampionImage(InputField.Text);
+    if DoesChampionExists(InputField.Text) then
+    begin
+      ShowChampion(GetChampion(InputField.Text));
+      SetChampionImage(InputField.Text);
+      ChampNotFound.Caption := '';
+    end
+    else
+      ChampNotFound.Caption := 'Champion not found.';
 end;
-
 
 end.
 

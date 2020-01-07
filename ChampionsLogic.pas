@@ -29,6 +29,8 @@ type
   ChampionsArray = Array of TChampion;
 
 
+function DoesChampionExists(ChampionName : String) : boolean;
+
 function CreateChampion(Name, Role : String; Health, HealthRegen, AbilityPower : Integer; ResourceType : String;
          ResourceRegen : Integer; AttackType : String; AttackDamage : Integer;
          AttackSpeed : Extended; AttackRange, Armor, MagicResist, MovementSpeed : Integer) : TChampion;
@@ -39,6 +41,24 @@ function GetChampion(ChampionName : String) : TChampion;
 
 
 implementation
+
+function DoesChampionExists(ChampionName : String) : boolean;
+var
+  Arr : ChampionsArray;
+  x : Integer;
+begin
+  Arr := GetAllChampions();
+  for x := Low(Arr) to High(Arr) do
+  begin
+    if CompareText(ChampionName, Arr[x].Name) = 0 then
+    begin
+      Result := True;
+      Exit;
+    end
+    else
+      Result := False;
+  end;
+end;
 
 function GetAllChampions() : ChampionsArray;
 var

@@ -4,7 +4,7 @@ object ChampionForm: TChampionForm
   BorderStyle = bsSingle
   BorderWidth = 5
   Caption = 'Find Champion'
-  ClientHeight = 391
+  ClientHeight = 400
   ClientWidth = 332
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -34,9 +34,21 @@ object ChampionForm: TChampionForm
     Width = 3
     Height = 13
   end
+  object ChampNotFound: TLabel
+    Left = 104
+    Top = 312
+    Width = 113
+    Height = 16
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object InputField: TEdit
     Left = 32
-    Top = 320
+    Top = 328
     Width = 257
     Height = 21
     TabOrder = 0
@@ -45,7 +57,7 @@ object ChampionForm: TChampionForm
   end
   object SearchButton: TButton
     Left = 40
-    Top = 344
+    Top = 360
     Width = 113
     Height = 17
     Caption = 'Search'
@@ -54,7 +66,7 @@ object ChampionForm: TChampionForm
   end
   object ClearButton: TButton
     Left = 168
-    Top = 344
+    Top = 360
     Width = 113
     Height = 17
     Caption = 'Clear'
@@ -62,7 +74,7 @@ object ChampionForm: TChampionForm
   end
   object ExitButton: TButton
     Left = 120
-    Top = 368
+    Top = 384
     Width = 81
     Height = 17
     Caption = 'Exit'
