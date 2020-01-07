@@ -25,7 +25,8 @@ type
     function ShowChampion(Champion : TChampion) : String;
     
     procedure SetChampionImage(ChampionName : String);
-    procedure ClearEverything();
+    procedure ClearChampionInfo();
+    procedure ChampionNotFound();
   public
 
   end;
@@ -37,7 +38,14 @@ implementation
 
 {$R *.dfm}
 
-procedure TChampionForm.ClearEverything();
+procedure TChampionForm.ChampionNotFound();
+begin
+  ChampionStats.Caption := '';
+  ChampionImage.Picture := nil;
+  ChampNotFound.Caption := 'Champion not found.';
+end;
+
+procedure TChampionForm.ClearChampionInfo();
 begin
   InputField.Clear;
   ChampionImage.Picture := nil;
@@ -98,12 +106,12 @@ begin
       ChampNotFound.Caption := '';
     end
     else
-      ChampNotFound.Caption := 'Champion not found.';
+      ChampionNotFound();
 end;
 
 procedure TChampionForm.ClearButtonClick(Sender: TObject);
 begin
-  ClearEverything();
+  ClearChampionInfo();
 end;
 
 end.
