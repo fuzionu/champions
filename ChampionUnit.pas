@@ -21,6 +21,8 @@ type
     procedure SearchButtonClick(Sender: TObject);
   private
     function ShowChampion(Champion : TChampion) : String;
+
+    procedure SetChampionImage(ChampionName : String);
   public
 
   end;
@@ -31,6 +33,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TChampionForm.SetChampionImage(ChampionName : String);
+begin
+  try
+    ChampionImage.Picture.LoadFromFile('images\' + ChampionName + '.bmp');
+  except
+    on EFOpenError do
+      ShowMessage('Champion''s image not found!');
+  end;
+end;
 
 function TChampionForm.ShowChampion(Champion : TChampion) : String;
 begin
@@ -69,8 +81,9 @@ end;
 procedure TChampionForm.SearchButtonClick(Sender: TObject);
 begin
   ShowChampion(GetChampion(InputField.Text));
-  
+  SetChampionImage(InputField.Text);
 end;
+
 
 end.
 
