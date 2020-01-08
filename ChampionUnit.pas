@@ -54,9 +54,12 @@ begin
 end;
 
 procedure TChampionForm.SetChampionImage(ChampionName : String);
+var
+  FixedChampionName : String;
 begin
+  FixedChampionName := StringReplace(ChampionName, ' ', '', [rfReplaceAll, rfIgnoreCase]);
   try
-    ChampionImage.Picture.LoadFromFile('images\' + Trim(ChampionName) + '.bmp');
+    ChampionImage.Picture.LoadFromFile('images\' + FixedChampionName + '.bmp');
   except
     on EFOpenError do
       ShowMessage('Champion''s image not found.');
