@@ -5,7 +5,7 @@ object ChampionForm: TChampionForm
   BorderWidth = 5
   Caption = 'Find Champion'
   ClientHeight = 400
-  ClientWidth = 332
+  ClientWidth = 378
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,27 +17,27 @@ object ChampionForm: TChampionForm
   PixelsPerInch = 96
   TextHeight = 13
   object LolLogo: TImage
-    Left = 8
+    Left = 32
     Top = 8
     Width = 313
     Height = 121
   end
   object ChampionImage: TImage
-    Left = 8
-    Top = 136
+    Left = 16
+    Top = 144
     Width = 169
     Height = 169
   end
   object ChampionStats: TLabel
-    Left = 187
-    Top = 136
-    Width = 3
-    Height = 13
+    Left = 195
+    Top = 144
+    Width = 166
+    Height = 169
   end
   object ChampNotFound: TLabel
-    Left = 104
+    Left = 136
     Top = 312
-    Width = 4
+    Width = 112
     Height = 16
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
@@ -47,7 +47,7 @@ object ChampionForm: TChampionForm
     ParentFont = False
   end
   object InputField: TEdit
-    Left = 32
+    Left = 64
     Top = 328
     Width = 257
     Height = 21
@@ -56,7 +56,7 @@ object ChampionForm: TChampionForm
     OnClick = InputFieldClick
   end
   object SearchButton: TButton
-    Left = 40
+    Left = 64
     Top = 360
     Width = 113
     Height = 17
@@ -65,7 +65,7 @@ object ChampionForm: TChampionForm
     OnClick = SearchButtonClick
   end
   object ClearButton: TButton
-    Left = 168
+    Left = 208
     Top = 360
     Width = 113
     Height = 17
@@ -74,7 +74,7 @@ object ChampionForm: TChampionForm
     OnClick = ClearButtonClick
   end
   object ExitButton: TButton
-    Left = 120
+    Left = 152
     Top = 384
     Width = 81
     Height = 17

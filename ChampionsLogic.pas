@@ -64,7 +64,7 @@ function GetAllChampions() : ChampionsArray;
 var
   Arr : ChampionsArray;
 begin
-  SetLength(Arr, 15);
+  SetLength(Arr, 19);
   Arr[0] := CreateChampion('Aatrox', 'Warrior', 3881, 59, 0, 'None', 0, 'Melee', 558, 1.40, 325, 178, 141, 415);
   Arr[1] := CreateChampion('Ahri', 'Assassin', 2600, 37, 811, 'Mana', 21, 'Ranged', 100, 0.78, 400, 120, 103, 450);
   Arr[2] := CreateChampion('Akali', 'Assassin', 2301, 45, 336, 'Energy', 10, 'Melee', 211,  1.15, 350, 100, 100, 395);
@@ -80,6 +80,11 @@ begin
   Arr[12] := CreateChampion('Blitzcrank', 'Tank', 5001, 54, 50, 'Mana', 41, 'Melee', 103, 1.00, 320, 291, 200, 450);
   Arr[13] := CreateChampion('Brand', 'Mage', 2310, 15, 758, 'Mana', 45, 'Ranged', 100, 0.88, 450, 133, 102, 441);
   Arr[14] := CreateChampion('Nasus', 'Warrior', 6356, 217, 30, 'Mana', 150, 'Melee', 1851, 1.15, 350, 586, 411, 555);
+  Arr[15] := CreateChampion('Gnar', 'Warrior', 3631, 57, 30, 'Rage', 12, 'Melee / Ranged', 433, 1.44, 385, 233, 199, 427);
+  Arr[16] := CreateChampion('Rengar', 'Assassin', 2999, 43, 0, 'Ferocity', 1, 'Melee', 601, 1.15, 350, 150, 122, 500);
+  Arr[17] := CreateChampion('Kled', 'Warrior', 3136, 50, 50, 'Courage', 5, 'Meele', 333, 1.85, 325, 100, 100, 450);
+  Arr[18] := CreateChampion('Vladimir', 'Mage', 4000, 83, 991, 'Health', 83, 'Ranged', 115, 0.91, 400, 123, 101, 413);
+
   Result := Arr;
 end;
 

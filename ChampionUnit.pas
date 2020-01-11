@@ -23,6 +23,7 @@ type
     procedure ClearButtonClick(Sender: TObject);
   private
     function ShowChampion(Champion : TChampion) : String;
+    function CheckResourceType(Champion : TChampion) : String;
     
     procedure SetChampionImage(ChampionName : String);
     procedure ClearChampionInfo();
@@ -37,6 +38,29 @@ var
 implementation
 
 {$R *.dfm}
+
+function TChampionForm.CheckResourceType(Champion : TChampion) : String;
+begin
+  if Champion.ResourceType = 'Mana' then
+    Result := 'Resource type: Mana' + sLineBreak +
+              'Resource regen: ' + IntToStr(Champion.ResourceRegen) + ' / second'
+  else if Champion.ResourceType = 'Energy' then
+    Result := 'Resource type: Energy' + sLineBreak +
+              'Resource regen: ' + IntToStr(Champion.ResourceRegen) + ' / second'
+  else if Champion.ResourceType = 'Rage' then
+    Result := 'Resource type: Rage' + sLineBreak +
+              'Resource gain: ' + IntToStr(Champion.ResourceRegen) + ' / attack or damage'
+  else if Champion.ResourceType = 'Ferocity' then
+    Result := 'Resource type: Ferocity' + sLineBreak +
+              'Resource gain: ' + IntToStr(Champion.ResourceRegen) + ' / ability'
+  else if Champion.ResourceType = 'Courage' then
+    Result := 'Resource type: Courage' + sLineBreak +
+              'Resource gain: ' + IntToStr(Champion.ResourceRegen) + ' / attack'
+  else if Champion.ResourceType = 'Health' then
+    Result := 'Resource type: Health'
+  else if Champion.ResourceType = 'None' then
+    Result := 'Resource type: None';
+end;
 
 procedure TChampionForm.ChampionNotFound();
 begin
@@ -72,10 +96,9 @@ begin
               'Name: ' + Champion.Name + sLineBreak +
               'Role: ' + Champion.Role + sLineBreak +
               'Health: ' + IntToStr(Champion.Health) + sLineBreak +
-              'Health regen: ' + IntToStr(Champion.HealthRegen) + '/s' + sLineBreak +
+              'Health regen: ' + IntToStr(Champion.HealthRegen) + ' / second' + sLineBreak +
+              CheckResourceType(Champion) + sLineBreak +
               'Ability power: ' + IntToStr(Champion.AbilityPower) + sLineBreak +
-              'Resource type: ' + Champion.ResourceType + sLineBreak +
-              'Resource regen: ' + IntToStr(Champion.ResourceRegen) + '/s' + sLineBreak +
               'Attack type: ' + Champion.AttackType + sLineBreak +
               'Attack damage: ' + IntToStr(Champion.AttackDamage) + sLineBreak +
               'Attack speed: ' + FloatToStr(Champion.AttackSpeed) + sLineBreak +
