@@ -48,6 +48,7 @@ var
   x : Integer;
 begin
   Arr := GetAllChampions();
+
   for x := Low(Arr) to High(Arr) do
   begin
     if CompareText(Trim(ChampionName), Arr[x].Name) = 0 then
@@ -65,6 +66,7 @@ var
   Arr : ChampionsArray;
 begin
   SetLength(Arr, 19);
+
   Arr[0] := CreateChampion('Aatrox', 'Warrior', 3881, 59, 0, 'None', 0, 'Melee', 558, 1.40, 325, 178, 141, 415);
   Arr[1] := CreateChampion('Ahri', 'Assassin', 2600, 37, 811, 'Mana', 21, 'Ranged', 100, 0.78, 400, 120, 103, 450);
   Arr[2] := CreateChampion('Akali', 'Assassin', 2301, 45, 336, 'Energy', 10, 'Melee', 211,  1.15, 350, 100, 100, 395);
@@ -95,6 +97,7 @@ var
   x : Integer;
 begin
   Arr := GetAllChampions();
+  
   for x := Low(Arr) to High(Arr) do
   begin
     if CompareText(Trim(ChampionName), Arr[x].Name) = 0 then Champion := Arr[x];

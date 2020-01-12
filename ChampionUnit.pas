@@ -82,6 +82,7 @@ var
   FixedChampionName : String;
 begin
   FixedChampionName := StringReplace(ChampionName, ' ', '', [rfReplaceAll, rfIgnoreCase]);
+  
   try
     ChampionImage.Picture.LoadFromFile('images\' + FixedChampionName + '.bmp');
   except
