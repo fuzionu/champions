@@ -24,6 +24,7 @@ type
   private
     function ShowChampion(Champion : TChampion) : String;
     function CheckResourceType(Champion : TChampion) : String;
+    function ShowInputDlg() : String;
     
     procedure SetChampionImage(ChampionName : String);
     procedure ClearChampionInfo();
@@ -38,6 +39,29 @@ var
 implementation
 
 {$R *.dfm}
+
+function TChampionForm.ShowInputDlg() : String;
+var
+  ChampName : String;
+  DoContinue : boolean;
+begin
+  repeat
+    DoContinue := InputQuery('Welcome...', 'Input champion''s name:', ChampName);
+
+    if DoContinue then
+    begin
+      if DoesChampionExists(ChampName) then
+      begin
+        Result := ChampName;
+        Break;
+      end
+      else
+        MessageDlg('Champion not found. Try again!', mtInformation,[mbOk],0);
+    end
+    else
+      Application.Terminate;
+  until (DoContinue = False) or (DoContinue and DoesChampionExists(ChampName));
+end;
 
 function TChampionForm.CheckResourceType(Champion : TChampion) : String;
 begin
@@ -82,12 +106,15 @@ var
   FixedChampionName : String;
 begin
   FixedChampionName := StringReplace(ChampionName, ' ', '', [rfReplaceAll, rfIgnoreCase]);
-  
+
   try
     ChampionImage.Picture.LoadFromFile('images\' + FixedChampionName + '.bmp');
   except
     on EFOpenError do
+    begin
+      ChampionImage.Picture := nil;
       ShowMessage('Champion''s image not found.');
+    end;
   end;
 end;
 
@@ -107,11 +134,23 @@ begin
               'Armor: ' + IntToStr(Champion.Armor) + sLineBreak +
               'Magic resist: ' + IntToStr(Champion.MagicResist) + sLineBreak +
               'Movement speed: ' + IntToStr(Champion.MovementSpeed);
+
+  SetChampionImage(Champion.Name);
 end;
 
 procedure TChampionForm.FormCreate(Sender: TObject);
+var
+  UserInput : String;
 begin
-  LolLogo.Picture.LoadFromFile('images\leagueoflegends.bmp');
+  UserInput := ShowInputDlg();
+
+  if UserInput = '' then
+    Application.Terminate
+  else
+  begin
+    ShowChampion(GetChampion(UserInput));
+    LolLogo.Picture.LoadFromFile('images\leagueoflegends.bmp');
+  end;
 end;
 
 procedure TChampionForm.ExitButtonClick(Sender: TObject);
@@ -129,7 +168,6 @@ begin
     if DoesChampionExists(InputField.Text) then
     begin
       ShowChampion(GetChampion(InputField.Text));
-      SetChampionImage(InputField.Text);
       ChampNotFound.Caption := '';
     end
     else

@@ -1,6 +1,6 @@
 object ChampionForm: TChampionForm
-  Left = 225
-  Top = 415
+  Left = 430
+  Top = 308
   BorderStyle = bsSingle
   BorderWidth = 5
   Caption = 'Find Champion'

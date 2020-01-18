@@ -97,7 +97,7 @@ var
   x : Integer;
 begin
   Arr := GetAllChampions();
-  
+
   for x := Low(Arr) to High(Arr) do
   begin
     if CompareText(Trim(ChampionName), Arr[x].Name) = 0 then Champion := Arr[x];
