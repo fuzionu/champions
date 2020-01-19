@@ -58,8 +58,6 @@ begin
       else
         MessageDlg('Champion not found. Try again!', mtInformation,[mbOk],0);
     end
-    else
-      Application.Terminate;
   until (DoContinue = False) or (DoContinue and DoesChampionExists(ChampName));
 end;
 
