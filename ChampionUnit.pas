@@ -58,7 +58,7 @@ begin
       else
         MessageDlg('Champion not found. Try again!', mtInformation,[mbOk],0);
     end
-  until (DoContinue = False) or (DoContinue and DoesChampionExists(ChampName));
+  until (DoContinue = False);
 end;
 
 function TChampionForm.CheckResourceType(Champion : TChampion) : String;
